@@ -63,4 +63,22 @@ ul {
 
 li {
     margin-left: -40px;
+    padding-bottom: 25px;
 }
+
+
+a {
+    color: #5990D9;
+}
+
+a:hover {
+    color: #BF8360;
+    text-decoration: none;
+}
+
+/* Color Theme Swatches in Hex */
+.Blue-Brown1 { color: #2646A6; }
+.Blue-Brown2 { color: #456EBF; }
+.Blue-Brown3 { color: #5990D9; }
+.Blue-Brown4 { color: #D9BF71; }
+.Blue-Brown5 { color: #BF8360; }
