@@ -1,0 +1,7 @@
+# Computational Geometry and Visibility Graphs
+
+Computational geometry is a subfield of computer science that deals with “the design and analysis of efficient algorithms for problems involving geometric input and output” (Mount). My final project for CS121 is this website which provides the user with a basic introduction to the field of computational geometry with a focus on visibility graphs. Through this website, I answer what computational geometry is, what a visibility graph is, and what types of problems visibility graphs (and computational geometry as a whole) provide us with the tools to solve. One of the key aspects of this project is a section where I show how visibility graphs can be used to find the Euclidean shortest path between two points with a series of obstacles positioned between them. This section allows users to place obstacles between two points, visualize the algorithm that creates the visibility graph, and visualize Dijkstra’s algorithm finding the Euclidean shortest path between the two points on the graph.
+
+## Sources
+
+* Mount, David M. *CMSC 754: Computational Geometry*. University of Maryland, 2012, https://www.cs.umd.edu/class/spring2012/cmsc754/Lects/cmsc754-lects.pdf.
