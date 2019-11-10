@@ -1,0 +1,55 @@
+body {
+    color: #1D2326;
+}
+
+/* header, footer {
+    background-color: #1D2326;
+    height: 50px;
+    color: white;
+    font-family: 'Lato', sans-serif;
+    font-size: 18px;
+} */
+
+h1,h2 {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 900;
+}
+
+h1 {
+    font-size: 44px;
+    padding-bottom: 30px;
+    position: absolute;
+    bottom: 0;
+}
+
+h2 {
+    font-size: 33px;
+}
+
+p {
+    font-family: 'Lato', sans-serif;
+    font-size: 20px;
+    text-align: justify;
+}
+
+.row {
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+section {
+    padding-top: 30px;
+}
+
+section#Title {
+    height: 50vh;
+    padding-top: 0;
+}
+
+section#Computational-Geometry {
+    padding-top: 270px;
+}
+
+#title {
+    height: 50vh;
+}
