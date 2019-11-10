@@ -2,14 +2,6 @@ body {
     color: #1D2326;
 }
 
-/* header, footer {
-    background-color: #1D2326;
-    height: 50px;
-    color: white;
-    font-family: 'Lato', sans-serif;
-    font-size: 18px;
-} */
-
 h1,h2 {
     font-family: 'Open Sans', sans-serif;
     font-weight: 900;
@@ -24,6 +16,7 @@ h1 {
 
 h2 {
     font-size: 33px;
+    padding-bottom: 30px;
 }
 
 p {
@@ -33,12 +26,12 @@ p {
 }
 
 .row {
-    margin-left: 10%;
-    margin-right: 10%;
+    margin-left: 15%;
+    margin-right: 15%;
 }
 
 section {
-    padding-top: 30px;
+    padding-top: 90px;
 }
 
 section#Title {
@@ -47,9 +40,27 @@ section#Title {
 }
 
 section#Computational-Geometry {
-    padding-top: 270px;
+    padding-top: 170px;
+}
+
+section#Sources {
+    padding-bottom: 170px;
 }
 
 #title {
     height: 50vh;
+}
+
+#author {
+    font-style: italic;
+}
+
+ul {
+    font-family: 'Lato', sans-serif;
+    font-size: 20px;
+    list-style-type: none;
+}
+
+li {
+    margin-left: -40px;
 }
