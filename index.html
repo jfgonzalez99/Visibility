@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Computational Geometry and Visibility Graphs</title>
+    <link rel="icon" type="image/png" href="images/graph-32.png" sizes="32x32">
 
-    <link href="https://fonts.googleapis.com/css?family=Lato|Open+Sans:700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Lato|Open+Sans:700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/bootstrap4/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -55,8 +56,47 @@
             </div>
             <div class="row">
                 <div class="col-md-12">
+                    <img src="images/VisibilityGraph.svg" alt="Visibility Graph">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
                     <p>
-                        
+                        In order to understand visibility graphs, we must first have a notion of what it means for two points to be visible to one another. Given a graph <span class="code">G = (V, L)</span> where <span class="code">V &sube; &reals; &times; &reals;</span> is a set of points in a 2-D plane and <span class="code">L &sube; {(u,v) &mid; u in V &and; v in V &and; u &NotEqual; v}</span> is a set of non-intersecting "obstacle" line segments in the plane, we say that any two points <span class="code">a,b in V</span> are visible to one another if you can draw a line segment connecting <span class="code">a</span> and <span class="code">b</span> that does not intersect a line segment in <span class="code">L</span> (<a href="#Mount">Mount</a>).
+                    </p>
+                </div>
+            </div>
+            <div class="row compare">
+                <div class="col-md-6">
+                    <h3><span class="code">a</span> is visible to <span class="code">b</span></h3>
+                    <img id="visible" src="images/visible.svg" alt="Visible">
+                </div>
+                <div class="col-md-6">
+                    <h3><span class="code">a</span> is <u>not</u> visible to <span class="code">b</span></h3>
+                    <img id="not-visible" src="images/not_visible.svg" alt="Not Visible">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <p>
+                        Let <span class="code">E &sube; {(u,v) &mid; u in V &and; v in V &and; u &NotEqual; v}</span> be the set of all pairs of points such that <span class="code">u</span> and <span class="code">v</span> are visible to one another. We also include the original line segment obstacles in our visibility graph. Therefore, the graph <span class="code">G<sub>v</sub> = (V, E &Union; L)</span> is the visibility graph of <span class="code">G</span>.
+                    </p>
+                </div>
+            </div>
+            <div class="row compare">
+                <div class="col-md-6">
+                    <h3><span class="code">G = (V, L)</span></h3>
+                    <img class="example1" src="images/input.svg" alt="Input Graph">
+                </div>
+                <div class="col-md-6">
+                    <h3><span class="code">G<sub>v</sub> = (V, E &Union; L)</span></h3>
+                    <img class="example1" src="images/output.svg" alt="Visibility Graph">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <p>
+                        The reason why we choose to include the edges of the obstacles in our graph is because one of the most common uses of visibility graphs is finding the Euclidean shortest path between two points given a series of obstacles in between them. Once the visibility graph of a graph <span class="code">G = (V, L)</span> has been created, a well known algorithm such as Dijkstra's algorithm or A* search can be used to find the shortest path between the two vertices on the graph (<a href="#Mount">Coleman</a>). We include the edges of the obstacles to allow for the case where the shortest path involves "walking" along the "wall" of an obstacle.
                     </p>
                 </div>
             </div>
