@@ -1,0 +1,30 @@
+body {
+    background-color: #f5f5f5;
+}
+
+#vis-title {
+    padding-top: 20px;
+}
+
+.row {
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+#visualization {
+    background-color: white;
+    height: 80vh;
+    border-radius: 5px;
+}
+
+#buttons {
+    padding-top: 5px;
+}
+
+button {
+    background-color: #1D2326;
+    color: white;
+    border-radius: 5px;
+    border: none;
+    width: 144px;
+}
