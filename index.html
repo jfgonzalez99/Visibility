@@ -96,7 +96,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <p>
-                        The reason why we choose to include the edges of the obstacles in our graph is because one of the most common uses of visibility graphs is finding the Euclidean shortest path between two points given a series of obstacles in between them. Once the visibility graph of a graph <span class="code">G = (V, L)</span> has been created, a well known algorithm such as Dijkstra's algorithm or A* search can be used to find the shortest path between the two vertices on the graph (<a href="#Mount">Coleman</a>). We include the edges of the obstacles to allow for the case where the shortest path involves "walking" along the "wall" of an obstacle.
+                        The reason why we choose to include the edges of the obstacles in our graph is because one of the most common uses of visibility graphs is finding the Euclidean shortest path between two points given a series of obstacles in between them. Once the visibility graph of a graph <span class="code">G = (V, L)</span> has been created, a well known algorithm such as Dijkstra's algorithm or A* search can be used to find the shortest path between the two vertices on the graph (<a href="#Coleman">Coleman</a>). We include the edges of the obstacles to allow for the case where the shortest path involves "walking" along the "wall" of an obstacle.
                     </p>
                 </div>
             </div>
@@ -111,7 +111,9 @@
             </div>
             <div class="row">
             <div class="col-md-12">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque nihil ducimus voluptates quam molestiae. Sint nulla praesentium maxime nemo tempora! Doloribus voluptatum numquam accusantium, reiciendis corrupti ex a ipsa vitae!</p>
+                <p>
+                    Currently, the best known algorithm for computing the visibility graph of an input graph with <span class="code">n</span> vertices has a time complexity of <span class="code">O(n log n + k)</span> where <span class="code">k</span> represents the number of edges in the visibility graph (<a href="#Mount">Mount</a>). In the worst case, every vertex in the visibility graph is visible to every other vertex and <span class="code">k = O(n<sup>2</sup>)</span> which results in a total worst case runtime of <span class="code">O(n log n + n<sup>2</sup>) = O(n<sup>2</sup>)</span>. 
+                </p>
             </div>
         </div>
         </section>
@@ -141,10 +143,13 @@
                 <div class="col-md-12">
                     <ul>
                         <li id="Coleman">
-                            Coleman, Dave. Lee’s O(n^2 log n) Visibility Graph Algorithm Implementation and Analysis. University of Colorado Boulder, 2012, <a target="_blank" href="https://dav.ee/papers/Visibility_Graph_Algorithm.pdf">https://dav.ee/papers/Visibility_Graph_Algorithm.pdf</a>.
+                            Coleman, Dave. <i>Lee’s O(n^2 log n) Visibility Graph Algorithm Implementation and Analysis</i>. University of Colorado Boulder, 2012, <a target="_blank" href="https://dav.ee/papers/Visibility_Graph_Algorithm.pdf">https://dav.ee/papers/Visibility_Graph_Algorithm.pdf</a>.
+                        </li>
+                        <li id="Kitzinger">
+                            Kitzinger, John. <i>The Visibility Graph Among Polygonal Obstacles: a Comparison of Algorithms</i>. University of New Mexico, 2003, <a target="_blank" href="https://www.cs.unm.edu/~moore/tr/03-05/Kitzingerthesis.pdf">https://www.cs.unm.edu/~moore/tr/03-05/Kitzingerthesis.pdf</a>.
                         </li>
                         <li id="Mount">
-                            Mount, David M. CMSC 754: Computational Geometry. University of Maryland, 2012, <a target="_blank" href="https://www.cs.umd.edu/class/spring2012/cmsc754/Lects/cmsc754-lects.pdf">https://www.cs.umd.edu/class/spring2012/cmsc754/Lects/cmsc754-lects.pdf</a>.
+                            Mount, David M. <i>CMSC 754: Computational Geometry</i>. University of Maryland, 2012, <a target="_blank" href="https://www.cs.umd.edu/class/spring2012/cmsc754/Lects/cmsc754-lects.pdf">https://www.cs.umd.edu/class/spring2012/cmsc754/Lects/cmsc754-lects.pdf</a>.
                         </li>
                     </ul>
                     <p></p>
