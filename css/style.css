@@ -50,8 +50,6 @@ p {
 .row {
     margin-left: 15%;
     margin-right: 15%;
-    padding: 30px;
-    border-radius: 5px;
 }
 
 section {
@@ -68,7 +66,6 @@ section#Computational-Geometry {
 }
 
 section#Sources {
-    /* height: 50vh; */
     padding-bottom: 170px;
 }
 
