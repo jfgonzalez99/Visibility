@@ -112,22 +112,33 @@
             <div class="row">
             <div class="col-md-12">
                 <p>
-                    Currently, the best known algorithm for computing the visibility graph of an input graph with <span class="code">n</span> vertices has a time complexity of <span class="code">O(n log n + k)</span> where <span class="code">k</span> represents the number of edges in the visibility graph (<a href="#Mount">Mount</a>). In the worst case, every vertex in the visibility graph is visible to every other vertex and <span class="code">k = O(n<sup>2</sup>)</span> which results in a total worst case runtime of <span class="code">O(n log n + n<sup>2</sup>) = O(n<sup>2</sup>)</span>. 
+                    Currently, the best known algorithm for computing the visibility graph of an input graph with <span class="code">n</span> vertices has a time complexity of <span class="code">O(n log n + k)</span> where <span class="code">k</span> represents the number of edges in the visibility graph (<a href="#Mount">Mount</a>). In the worst case, every vertex in the visibility graph is visible to every other vertex and <span class="code">k = O(n<sup>2</sup>)</span> which results in a total worst case runtime of <span class="code">O(n log n + n<sup>2</sup>) = O(n<sup>2</sup>)</span>. However, since this algorithm is fairly complex and not very intuitive, we will take a closer look at a more intuitive <span class="code">O(n<sup>2</sup> log n)</span> algorithm discovered by D. T. Lee in 1978 (<a href="#Kitzinger">Kitzinger</a>).<br><br>
+
+                    The algorithm iterates through each vertex <span class="code">V[i]</span> in an input graph <span class="code">G = (V, L)</span> and performs two main steps at each vertex. First, we create a "scan line" centered at the vertex <span class="code">V[i]</span> that points directly to the right of <span class="code">V[i]</span>. We then iterate through every vertex <span class="code">V[j]</span> in <span class="code">V</span> such that <span class="code">V[i] &NotEqual; V[j]</span> and calculate the counter-clockwise angle between the scan line and <span class="code">V[j]</span>. We store these values in a data structure <span class="code">S</span> making sure to sort them in increasing order.<br><br>
+                    
+                    Then, we iterate through each <span class="code">V[j]</span> in <span class="code">S</span> and move our scan line to point to <span class="code">V[j]</span>. If our scan line intersects with any other edges, we add the intersection point to a data structure <span class="code">T</span> making sure to sort them by distance to <span class="code">V[i]</span>. If there are no edges between <span class="code">V[i]</span> and <span class="code">V[j]</span>, then we know <span class="code">V[i]</span> is visible to <span class="code">V[j]</span>. Otherwise, if the closest intersection point (i.e. the first element of <span class="code">T</span>) is equivalent to <span class="code">V[j]</span>, then we also know <span class="code">V[i]</span> is visible to <span class="code">V[j]</span>. We repeat this process for every vertex in <span class="code">V</span>, making sure to store visible pairs of vertices in a data structure <span class="code">E</span>. At the end of the algorithm we return <span class="code">G<sub>v</sub> = (V, E &Union; L)</span> and find that this graph is our visibility graph for <span class="code">G</span>!
                 </p>
             </div>
         </div>
         </section>
 
 
-        <section id="Importance">
+        <section id="Create">
             <div class="row">
                 <div class="col-md-12">
-                    <h2>Why are Visibility Graphs Important?</h2>
+                    <h2>Create Your Own Visibility Graph</h2>
                 </div>
             </div>
             <div class="row">
+                    <div class="col-md-12">
+                        <img id="screenshot" src="images/screenshot.png" alt="Screenshot">
+                    </div>
+                </div>
+            <div class="row">
                 <div class="col-md-12">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque nihil ducimus voluptates quam molestiae. Sint nulla praesentium maxime nemo tempora! Doloribus voluptatum numquam accusantium, reiciendis corrupti ex a ipsa vitae!</p>
+                    <p>
+                        Feel free to make your own visibility graphs using my <a href="/visualization.html" target="_blank">Visibility Graph Generator</a>! Simply add nodes, click on two existing nodes to add edges, and compute your own visibility graph!
+                    </p>
                 </div>
             </div>
         </section>
