@@ -6,6 +6,8 @@ function visbilityGraph(G) {
     n = V.length;
     m = E.length;
 
+    var visibleEdges = [];
+
     // var angles = [];
     for (let i = 0; i < n; i++) {
         var uAngles = [];
@@ -27,37 +29,61 @@ function visbilityGraph(G) {
             return a[1] - b[1];
         });
 
-        var edgeLists = [];
+        // var edgeLists = [];
         uAngles.forEach(a => {
             u = V[i]
             // Scan line passes through v
             v = V[a[0]]
 
-            // // Initialize scan vector
-            // s = {x:0,y:0};
-            
-            // // Create scan line
-            // len_uv = Math.sqrt(Math.pow(u.x - v.x, 2.0) + Math.pow(u.y - v.y, 2.0));
-            // // Extend to arbitrary length
-            // s.x = v.x + (v.x - u.x) / len_uv * 5000;
-            // s.y = v.y + (v.y - u.y) / len_uv * 5000;
             var edgeList = [];
             for (let k = 0; k < m; k++) {
                 var e = E[k];
-                var intersect = intersection(u.x,u.y,v.x,v.y,e.x1,e.y1,e.x2,e.y2);
+                // Don't include edge that are connected to u
+                if (Math.round(parseFloat(e.x1) * 1000) 
+                != Math.round(parseFloat(u.x) * 1000) 
+                && Math.round(parseFloat(e.x2) * 1000) 
+                != Math.round(parseFloat(u.x) * 1000) 
+                && Math.round(parseFloat(e.y1) * 1000) 
+                != Math.round(parseFloat(u.y) * 1000) 
+                && Math.round(parseFloat(e.y2) * 1000) 
+                != Math.round(parseFloat(u.y) * 1000)) {
+                    var intersect = intersection(u.x,u.y,v.x,v.y,e.x1,e.y1,e.x2,e.y2);
 
-                if (intersect != false && intersect != "parallel") {
-                    edgeList.push([k, intersect]);
+                    if (intersect != false && intersect != "parallel") {
+                        edgeList.push([k, intersect]);
+                    }
                 }
             }
+
+            // Sort by distance to u
             edgeList.sort(function(a,b) {
                 return distance(u,a[1]) - distance(u,b[1]);
             });
-            edgeLists.push([a[0],edgeList]);
+            
+            // Verify whether u is visible to v
+            if (edgeList.length == 0) {
+                console.log(i, "is visible to", a[0]);
+                visibleEdges.push([i,a[0]]);
+            }
+            
+            else {
+                if (Math.round(parseFloat(edgeList[0][1].x) * 1000) == Math.round(parseFloat(v.x) * 1000)
+                && Math.round(parseFloat(edgeList[0][1].y) * 1000) == Math.round(parseFloat(v.y) * 1000))
+                {
+                    console.log(i, "is visible to", a[0]);
+                    visibleEdges.push([i,a[0]]);
+                }
+                else {
+                    console.log(i, "is not visible to", a[0]);
+                }
+            }
+            
+            // edgeLists.push([a[0],edgeList]);
         }); 
-        
-        console.log(edgeLists);
+        // console.log(edgeLists);
     }
+
+    return visibleEdges;
 }
 
 function distance(u,v) {

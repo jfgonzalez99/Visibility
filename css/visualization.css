@@ -42,6 +42,10 @@ button.active {
     background-color: #5990D9;
 }
 
+h2 {
+    padding-top: 20px;
+}
+
 .label {
     font-family: 'Source Code Pro', monospace;
     font-size: 18px;

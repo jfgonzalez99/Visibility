@@ -6,6 +6,7 @@ var svg = d3.select("#visualization")
             .attr("height", "80vh");
 
 // Group edges before nodes so nodes appear on top of edges
+var vis_visibility_edges = svg.append('g').attr('id','vis-visibility-edges');
 var vis_edges = svg.append('g').attr('id','vis-edges');
 var vis_nodes = svg.append('g').attr('id','vis-nodes');
 
@@ -50,10 +51,17 @@ buttons.forEach(button => {
             graph.start = 0;
             graph.end = 0;
             d3.selectAll('.label').remove();
+            // Remove visibility lines
+            d3.selectAll('.visibility-line').remove();
         }
         else if (button == "#compute") {
             $.getScript('js/visibility.js',function() {
-                visbilityGraph(graph);
+                var visibleEdges = visbilityGraph(graph);
+                console.log(visibleEdges);
+                console.log(graph.nodes);
+                
+                
+                drawVisibilityEdges(graph.nodes,visibleEdges);
             })
         }
     });
@@ -196,4 +204,26 @@ function selectStartEnd(n) {
     }
 }
 
+function drawVisibilityEdges(V,E) {
+    var m = E.length;
+    var n = V.length;
 
+    for (let i = 0; i < m; i++) {
+        var j = E[i][0];
+        var k = E[i][1];
+        console.log(j,k);
+        
+        var u = V[j];
+        var v = V[k];
+
+        // Draw edge
+        vis_visibility_edges.append('line')
+           .attr('class','visibility-line')
+           .attr('x1',u.x)
+           .attr('y1',u.y)
+           .attr('x2',v.x)
+           .attr('y2',v.y)
+           .attr('stroke-width', 3)
+           .attr('stroke','#5990D9');
+    }
+}
