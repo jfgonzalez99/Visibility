@@ -26,5 +26,24 @@ button {
     color: white;
     border-radius: 5px;
     border: none;
-    width: 144px;
+    width: 150px;
+    height: 85px;
+}
+
+button:hover {
+    background-color: #bf8360;
+}
+
+button:focus {
+    outline: 0;
+}
+
+button.active {
+    background-color: #5990D9;
+}
+
+.label {
+    font-family: 'Source Code Pro', monospace;
+    font-size: 18px;
+    color: #1D2326;
 }
