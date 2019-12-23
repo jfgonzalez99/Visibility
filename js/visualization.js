@@ -1,4 +1,3 @@
-
 // Create svg canvas
 var svg = d3.select("#visualization")
             .append("svg")
@@ -60,7 +59,6 @@ buttons.forEach(button => {
                 console.log(visibleEdges);
                 console.log(graph.nodes);
                 
-                
                 drawVisibilityEdges(graph.nodes,visibleEdges);
             })
         }
@@ -95,18 +93,6 @@ function drawCircle(x, y, num) {
                 selectStartEnd(n);
             }
        });
-    //    .on('mouseover', function() {
-    //         if (states['#edges'] || states['#select']) {
-    //             c = d3.select(this);
-    //             c.attr('fill','#bf8360');
-    //         }
-    //    })
-    //    .on('mouseout', function() {
-    //         if ((states['#edges'] || states['#select']) && not(click)) {
-    //             c = d3.select(this);
-    //             c.attr('fill','#1D2326');
-    //         }
-    //     });
 }
 
 var graph = {
@@ -139,14 +125,6 @@ function drawEdges(n) {
             x2:c2.attr('cx'),
             y2:c2.attr('cy')
         });
-        // graph.edges.push({
-        //     n1:parseInt(c1.attr('id')),
-        //     x1:c1.attr('cx'),
-        //     y1:c1.attr('cy'),
-        //     n2:parseInt(c2.attr('id')),
-        //     x2:c2.attr('cx'),
-        //     y2:c2.attr('cy')
-        // });
 
         // Reset node colors
         c1.attr('fill','#1D2326')
@@ -175,15 +153,13 @@ function selectStartEnd(n) {
         }
 
         c1 = startEnd[0];
-        c1.attr('fill','#5990D9');
+        c1.attr('fill','#bf8360');
 
         vis_nodes.append('text')
            .attr('class','label')
            .text('Start')
            .attr('x',c1.attr('cx'))
            .attr('y',c1.attr('cy') - 15);
-
-        
     }
     if (n == 2) {
         c2 = startEnd[1];
