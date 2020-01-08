@@ -58,7 +58,7 @@ function visbilityGraph(G) {
             
             // Verify whether u is visible to v
             if (edgeList.length == 0) {
-                console.log(i, "is visible to", a[0]);
+                // console.log(i, "is visible to", a[0]);
                 visibleEdges.push([i,a[0]]);
             }
             
@@ -66,11 +66,11 @@ function visbilityGraph(G) {
                 if (Math.round(parseFloat(edgeList[0][1].x) * 1000) == Math.round(parseFloat(v.x) * 1000)
                 && Math.round(parseFloat(edgeList[0][1].y) * 1000) == Math.round(parseFloat(v.y) * 1000))
                 {
-                    console.log(i, "is visible to", a[0]);
+                    // console.log(i, "is visible to", a[0]);
                     visibleEdges.push([i,a[0]]);
                 }
                 else {
-                    console.log(i, "is not visible to", a[0]);
+                    // console.log(i, "is not visible to", a[0]);
                 }
             }
         }); 
