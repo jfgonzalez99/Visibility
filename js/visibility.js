@@ -6,7 +6,6 @@ function visbilityGraph(G) {
 
     var visibleEdges = [];
 
-    // var angles = [];
     for (let i = 0; i < n; i++) {
         var uAngles = [];
         for (let j = 0; j < n; j++) {
@@ -122,8 +121,7 @@ function intersection(x1, y1, x2, y2, x3, y3, x4, y4) {
 function prune(edges) {
     var uniqueEdges = [];
     edges.forEach(e => {
-        var c = contains(uniqueEdges,e);
-        if (contains(uniqueEdges,e)) {
+        if (!contains(uniqueEdges,e)) {
             uniqueEdges.push(e);
         }
     });
@@ -137,7 +135,6 @@ function contains(M,a) {
         var item = M[i];
         if ((item[0] == a[0] && item[1] == a[1]) ||
             (item[0] == a[1] && item[1] == a[0])) {
-            console.log("True");
             return true;
         }
     }
