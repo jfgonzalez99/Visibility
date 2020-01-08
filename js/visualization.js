@@ -15,11 +15,12 @@ var states = {
     "#edges": 0,
     "#select": 0,
     "#compute": 0,
+    "#find": 0,
     "#clear": 0
 };
 
 // Button behavior
-var buttons = ["#nodes","#edges","#select","#compute","#clear"];
+var buttons = ["#nodes","#edges","#select","#compute","#find","#clear"];
 buttons.forEach(button => {
     b = d3.select(button);
     b.on('click', function() {
@@ -55,12 +56,18 @@ buttons.forEach(button => {
         }
         else if (button == "#compute") {
             $.getScript('js/visibility.js',function() {
-                var visibleEdges = visbilityGraph(graph);
-                console.log(visibleEdges);
-                console.log(graph.nodes);
+                visGraph.nodes = graph.nodes;
+                visGraph.edges = visbilityGraph(graph);
+                visGraph.start = graph.start;
+                visGraph.end = graph.end;
                 
-                drawVisibilityEdges(graph.nodes,visibleEdges);
-            })
+                drawVisibilityEdges(visGraph.nodes,visGraph.edges);
+            });
+        }
+        else if (button == "#find") {
+            $.getScript('js/dijkstra.js',function() {
+                var path = findPath(visGraph);
+            });
         }
     });
 });
@@ -96,6 +103,13 @@ function drawCircle(x, y, num) {
 }
 
 var graph = {
+    nodes: [],
+    edges: [],
+    start: 0,
+    end: 0
+}
+
+var visGraph = {
     nodes: [],
     edges: [],
     start: 0,
@@ -187,7 +201,7 @@ function drawVisibilityEdges(V,E) {
     for (let i = 0; i < m; i++) {
         var j = E[i][0];
         var k = E[i][1];
-        console.log(j,k);
+        // console.log(j,k);
         
         var u = V[j];
         var v = V[k];

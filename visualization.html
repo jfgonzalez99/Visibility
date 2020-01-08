@@ -28,10 +28,15 @@
                     <li><button id="edges">Add edges</button></li>
                     <li><button id="select">Select start/end</button></li>
                     <li><button id="compute">Compute visibility graph</button></li>
+                    <li><button id="find">Find shortest path</button></li>
                     <li><button id="clear">Clear graph</button></li>
-                    <li>Note: Do not draw intersecting lines!</li>
                 </ul>
             </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-10">
+            <p id="note">Note: Do not draw intersecting lines!</p>
         </div>
     </div>
     
@@ -41,5 +46,6 @@
     <script src="https://d3js.org/d3.v3.min.js"></script>
     <script src="js/visualization.js"></script>
     <script src="js/visibility.js"></script>
+    <script src="js/dijkstra.js"></script>
 </body>
 </html>

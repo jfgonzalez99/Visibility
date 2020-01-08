@@ -21,6 +21,10 @@ body {
     padding-top: 5px;
 }
 
+#note {
+    text-align: center;
+}
+
 button {
     background-color: #1D2326;
     color: white;

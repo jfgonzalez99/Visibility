@@ -1,6 +1,4 @@
-
 function visbilityGraph(G) {
-    console.log(G);
     var V = G.nodes;
     var E = G.edges;
     n = V.length;
@@ -54,7 +52,6 @@ function visbilityGraph(G) {
                     }
                 }
             }
-
             // Sort by distance to u
             edgeList.sort(function(a,b) {
                 return distance(u,a[1]) - distance(u,b[1]);
@@ -77,12 +74,9 @@ function visbilityGraph(G) {
                     console.log(i, "is not visible to", a[0]);
                 }
             }
-            
-            // edgeLists.push([a[0],edgeList]);
         }); 
-        // console.log(edgeLists);
     }
-
+    visibleEdges = prune(visibleEdges);
     return visibleEdges;
 }
 
@@ -92,7 +86,7 @@ function distance(u,v) {
 }
 
 
-// line intercept math by Paul Bourke http://paulbourke.net/geometry/pointlineplane/
+// Line intercept math by Paul Bourke http://paulbourke.net/geometry/pointlineplane/
 // Determine the intersection point of two line segments
 // Return FALSE if the lines don't intersect
 function intersection(x1, y1, x2, y2, x3, y3, x4, y4) {
@@ -124,3 +118,28 @@ function intersection(x1, y1, x2, y2, x3, y3, x4, y4) {
     return {x, y}
 }
 
+// Cleans up any duplicate edges
+function prune(edges) {
+    var uniqueEdges = [];
+    edges.forEach(e => {
+        var c = contains(uniqueEdges,e);
+        if (contains(uniqueEdges,e)) {
+            uniqueEdges.push(e);
+        }
+    });
+    return uniqueEdges;
+}
+
+// Returns true if M contains a or the reverse of a
+function contains(M,a) {
+    var lenM = M.length;
+    for (let i = 0; i < lenM; i++) {
+        var item = M[i];
+        if ((item[0] == a[0] && item[1] == a[1]) ||
+            (item[0] == a[1] && item[1] == a[0])) {
+            console.log("True");
+            return true;
+        }
+    }
+    return false;
+}
