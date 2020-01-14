@@ -65,8 +65,11 @@ buttons.forEach(button => {
             });
         }
         else if (button == "#find") {
+            visGraph.start = graph.start;
+            visGraph.end = graph.end;
             $.getScript('js/dijkstra.js',function() {
                 var path = findPath(visGraph);
+                drawPath(path);
             });
         }
     });
@@ -123,6 +126,26 @@ svg.on('click', function() {
         drawCircle(coords[0], coords[1], num - 1);
     }
 });
+
+function drawPath(path) {
+    var n = path.length;
+    console.log(graph.nodes);
+    
+    for (let i = 0; i < n - 1; i++) {
+        var c1 = graph.nodes[path[i]];
+        var c2 = graph.nodes[path[i + 1]];
+
+        // Draw edge
+        vis_edges.append('line')
+                 .attr('class','edge-line')
+                 .attr('x1',c1.x)
+                 .attr('y1',c1.y)
+                 .attr('x2',c2.x)
+                 .attr('y2',c2.y)
+                 .attr('stroke-width', 3)
+                 .attr('stroke','#bf8360');
+    }
+}
 
 function drawEdges(n) {
     if (n == 2) {
