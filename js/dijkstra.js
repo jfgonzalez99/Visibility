@@ -1,3 +1,5 @@
+// This code was inspired by Divyanshu Mehta
+// https://www.geeksforgeeks.org/dijkstras-shortest-path-algorithm-greedy-algo-7/
 class Graph {
     constructor(G) {
         this.size = G.nodes.length;
