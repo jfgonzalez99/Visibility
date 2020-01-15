@@ -86,7 +86,6 @@ class Graph {
 
     unrollPath(path, current) {
         if (isNaN(current)) {
-            // this.targetPath.push(this.source);
             console.log(this.targetPath);
         }
         else {
